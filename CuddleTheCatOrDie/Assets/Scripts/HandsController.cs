@@ -77,11 +77,8 @@ public class HandsController : MonoBehaviour
 
     void Cuddling()
     {
-        print("Cuddling 1");
-
         if(catOnTheSpotlight)
         {
-            print("Cuddling 2");
             catOnTheSpotlight.GetComponent<CatController>().BeingCuddled();
         }
     }
@@ -90,12 +87,14 @@ public class HandsController : MonoBehaviour
     {
         state = "idle";
         animator.SetBool("cuddling", false);
+        if(catOnTheSpotlight)
+        {
+            catOnTheSpotlight.GetComponent<CatController>().StopCuddling();
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        print("Collision Enter: " + other.tag);
-
         if(other.CompareTag("Cat"))
         {
             catOnTheSpotlight = other.gameObject;
@@ -104,8 +103,6 @@ public class HandsController : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        print("Collision Exit: " + other.tag);
-        
         if(other.gameObject == catOnTheSpotlight)
         {
             catOnTheSpotlight = null;
