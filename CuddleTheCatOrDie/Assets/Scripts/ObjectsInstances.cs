@@ -6,6 +6,7 @@ public class ObjectsInstances : MonoBehaviour
 {
     [SerializeField] public HandsController handsController;
     [SerializeField] public CatsController catsController;
+    [SerializeField] public ScreensController screensController;
 
     public static ObjectsInstances instance;
 

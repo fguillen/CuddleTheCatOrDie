@@ -100,7 +100,15 @@ MonoBehaviour:
   spriteTemplates:
   - {fileID: 21300000, guid: 4b42900d077854cc1a226355cbf0ded3, type: 3}
   - {fileID: 21300000, guid: ea2370bb921714a57aaacc66583143df, type: 3}
+  - {fileID: 21300000, guid: 3f3fd4100d8da44df84ac89737f57868, type: 3}
+  - {fileID: 21300000, guid: 8cf73b964a6204f6bb4724db46286aa7, type: 3}
+  - {fileID: 21300000, guid: 967e93fe4c2ad4eb381d0e347d568c05, type: 3}
+  - {fileID: 21300000, guid: 33e200bf48b0f4f45b595b28184e5187, type: 3}
+  - {fileID: 21300000, guid: 9e1575cbeefa642aa8d2babd41aa26dd, type: 3}
+  - {fileID: 21300000, guid: a4ee936f0612842ec9aceb94ae0ecd52, type: 3}
+  - {fileID: 21300000, guid: 453660f3466ea49da91bf7a1864ccaf5, type: 3}
   secondsOfCuddling: 2
+  secondsToBeAngry: 5
   state: 
 --- !u!58 &8000806763765221240
 CircleCollider2D:

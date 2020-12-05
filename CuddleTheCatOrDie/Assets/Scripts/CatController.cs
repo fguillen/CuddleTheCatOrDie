@@ -7,6 +7,7 @@ public class CatController : MonoBehaviour
 
     [SerializeField] Sprite[] spriteTemplates;
     [SerializeField] float secondsOfCuddling;
+    [SerializeField] float secondsToBeAngry;
     [SerializeField] string state;
 
     Animator animator;
@@ -23,7 +24,30 @@ public class CatController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(state == "idle")
+        {
+            GettingAngry();
+        }
+    }
+
+    void GettingAngry()
+    {
+        secondsToBeAngry -= Time.deltaTime;
+
+        if(secondsToBeAngry <= 0)
+        {
+            GetAngry();
+        }
+    }
+
+    void GetAngry()
+    {
+        animator.SetBool("angry", true);
+    }
+
+    public void Explosion()
+    {
+        ObjectsInstances.instance.screensController.DeadScreen();
     }
 
     void RandomSprite()
