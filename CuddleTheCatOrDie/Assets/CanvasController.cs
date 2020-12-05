@@ -22,14 +22,11 @@ public class CanvasController : MonoBehaviour
 
     void OrientArrow()
     {
-        // if(ObjectsInstances.instance.catsController.GetActiveCat())
-        // {
-        //     Vector2 catPosition = Camera.main.WorldToScreenPoint(ObjectsInstances.instance.catsController.GetActiveCat().transform.position);
-        //     arrow.transform.right = catPosition;
-        // }
-
-        Vector2 catPosition = Camera.main.WorldToScreenPoint(ObjectsInstances.instance.handsController.gameObject.transform.position);
-        arrow.transform.right = catPosition;
+        if(ObjectsInstances.instance.catsController.GetActiveCat())
+        {
+            Vector2 catPosition = Camera.main.WorldToScreenPoint(ObjectsInstances.instance.catsController.GetActiveCat().transform.position);
+            arrow.transform.right = catPosition;
+        }
     }
 
     public void SetScore(int score)
