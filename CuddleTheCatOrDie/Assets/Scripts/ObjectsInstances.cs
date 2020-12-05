@@ -7,6 +7,8 @@ public class ObjectsInstances : MonoBehaviour
     [SerializeField] public HandsController handsController;
     [SerializeField] public CatsController catsController;
     [SerializeField] public ScreensController screensController;
+    [SerializeField] public ScoreController scoreController;
+    [SerializeField] public CanvasController canvasController;
 
     public static ObjectsInstances instance;
 

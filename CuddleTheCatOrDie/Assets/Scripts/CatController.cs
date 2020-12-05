@@ -56,6 +56,8 @@ public class CatController : MonoBehaviour
     public void Explosion()
     {
         ObjectsInstances.instance.screensController.DeadScreen();
+        ObjectsInstances.instance.handsController.Dead();
+        Destroy(this.gameObject);
     }
 
     void RandomSprite()
@@ -95,9 +97,10 @@ public class CatController : MonoBehaviour
 
     void IsHappy()
     {
-        Destroy(this.gameObject);
+        ObjectsInstances.instance.scoreController.IncreaseScore();
         ObjectsInstances.instance.catsController.SpawnCat();
         cuddlingSound.Stop();
+        Destroy(this.gameObject);
     }
 
 

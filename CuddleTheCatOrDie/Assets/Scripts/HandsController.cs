@@ -44,12 +44,12 @@ public class HandsController : MonoBehaviour
             Cuddling();
         }
 
-        if(Input.GetMouseButtonDown(0))
+        if(state == "idle" && Input.GetMouseButtonDown(0))
         {
             StartCuddling();
         }
 
-        if(Input.GetMouseButtonUp(0))
+        if(state == "cuddling" && Input.GetMouseButtonUp(0))
         {
             Idle();
         }
@@ -103,6 +103,11 @@ public class HandsController : MonoBehaviour
         {
             catOnTheSpotlight = other.gameObject;
         }    
+    }
+
+    public void Dead()
+    {
+        state = "dead";
     }
 
     void OnTriggerExit2D(Collider2D other)
