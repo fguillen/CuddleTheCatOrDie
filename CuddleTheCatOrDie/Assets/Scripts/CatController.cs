@@ -69,8 +69,6 @@ public class CatController : MonoBehaviour
 
     public void BeingCuddled()
     {
-        print("Being Cuddled");
-
         if(state == "idle")
         {
             state = "cuddling";
