@@ -15,6 +15,7 @@ public class HandsController : MonoBehaviour
     float maxY;
 
     Animator animator;
+    CatController catInTheSpotlight;
 
 
     // Start is called before the first frame update
@@ -73,5 +74,13 @@ public class HandsController : MonoBehaviour
     {
         state = "idle";
         animator.SetBool("cuddling", false);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Cat"))
+        {
+            other.gameObject.GetComponent<CatController>();
+        }    
     }
 }
