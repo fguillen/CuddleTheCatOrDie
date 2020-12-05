@@ -99,6 +99,8 @@ MonoBehaviour:
   spriteTemplates:
   - {fileID: 21300000, guid: 4b42900d077854cc1a226355cbf0ded3, type: 3}
   - {fileID: 21300000, guid: ea2370bb921714a57aaacc66583143df, type: 3}
+  secondsOfCuddling: 2
+  state: 
 --- !u!58 &8000806763765221240
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ObjectsInstances : MonoBehaviour
 {
-    [SerializeField] HandsController handsController;
-    [SerializeField] CatsController catsController;
+    [SerializeField] public HandsController handsController;
+    [SerializeField] public CatsController catsController;
 
     public static ObjectsInstances instance;
-    
+
     // Start is called before the first frame update
     void Start()
     {

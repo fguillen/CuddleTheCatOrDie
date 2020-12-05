@@ -6,11 +6,15 @@ public class CatController : MonoBehaviour
 {
 
     [SerializeField] Sprite[] spriteTemplates;
+    [SerializeField] float secondsOfCuddling;
+    [SerializeField] string state;
+
 
     // Start is called before the first frame update
     void Start()
     {
         RandomSprite();
+        state = "idle";
     }
 
     // Update is called once per frame
@@ -24,6 +28,23 @@ public class CatController : MonoBehaviour
         Sprite sprite = spriteTemplates[Random.Range(0, spriteTemplates.Length)];
 
         GetComponent<SpriteRenderer>().sprite = sprite;
+    }
+
+    public void BeingCuddled()
+    {
+        print("Being Cuddled");
+
+        secondsOfCuddling -= Time.deltaTime;
+        if(secondsOfCuddling <= 0)
+        {
+            IsHappy();
+            ObjectsInstances.instance.handsController.CatHappy(this.gameObject);
+        }
+    }
+
+    void IsHappy()
+    {
+        Destroy(this);
     }
 
 

@@ -15,7 +15,7 @@ public class HandsController : MonoBehaviour
     float maxY;
 
     Animator animator;
-    CatController catInTheSpotlight;
+    GameObject catOnTheSpotlight;
 
 
     // Start is called before the first frame update
@@ -38,9 +38,14 @@ public class HandsController : MonoBehaviour
             MoveTowardsCursor();
         }
 
-        if(Input.GetMouseButtonDown(0))
+        if(state == "cuddling")
         {
             Cuddling();
+        }
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            StartCuddling();
         }
 
         if(Input.GetMouseButtonUp(0))
@@ -64,10 +69,21 @@ public class HandsController : MonoBehaviour
         if(transform.position.y < minY) transform.position = new Vector3(transform.position.x, minY, transform.position.z);
     }
 
+    void StartCuddling()
+    {
+        state = "cuddling";
+        animator.SetBool("cuddling", true);
+    }
+
     void Cuddling()
     {
-        state = "cludding";
-        animator.SetBool("cuddling", true);
+        print("Cuddling 1");
+
+        if(catOnTheSpotlight)
+        {
+            print("Cuddling 2");
+            catOnTheSpotlight.GetComponent<CatController>().BeingCuddled());
+        }
     }
 
     void Idle()
@@ -78,9 +94,29 @@ public class HandsController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        print("Collision Enter: " + other.tag);
+
         if(other.CompareTag("Cat"))
         {
-            other.gameObject.GetComponent<CatController>();
+            catOnTheSpotlight = other.gameObject;
         }    
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        print("Collision Exit: " + other.tag);
+        
+        if(other.gameObject == catOnTheSpotlight)
+        {
+            catOnTheSpotlight = null;
+        }
+    }
+
+    public void CatHappy(cat)
+    {
+        if(cat = catOnTheSpotLight)
+        {
+            catOnTheSpotlight = null;s
+        }
     }
 }
