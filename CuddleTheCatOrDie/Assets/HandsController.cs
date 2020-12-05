@@ -7,11 +7,14 @@ public class HandsController : MonoBehaviour
 {
     [SerializeField] Transform[] limits;
     [SerializeField] float speed;
+    [SerializeField] string state;
 
     float minX;
     float maxX;
     float minY;
     float maxY;
+
+    Animator animator;
 
 
     // Start is called before the first frame update
@@ -21,12 +24,28 @@ public class HandsController : MonoBehaviour
         maxX = limits.Max(e => e.position.x);
         minY = limits.Min(e => e.position.y);
         maxY = limits.Max(e => e.position.y);
+
+        animator = GetComponent<Animator>();
+
+        state = "idle";
     }
 
-    // Update is called once per frame
     void Update()
     {
-        MoveTowardsCursor();
+        if(state == "idle")
+        {
+            MoveTowardsCursor();
+        }
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            Cuddling();
+        }
+
+        if(Input.GetMouseButtonUp(0))
+        {
+            Idle();
+        }
     }
 
     void MoveTowardsCursor()
@@ -42,5 +61,17 @@ public class HandsController : MonoBehaviour
         if(transform.position.x < minX) transform.position = new Vector3(minX, transform.position.y, transform.position.z);
         if(transform.position.y > maxY) transform.position = new Vector3(transform.position.x, maxY, transform.position.z);
         if(transform.position.y < minY) transform.position = new Vector3(transform.position.x, minY, transform.position.z);
+    }
+
+    void Cuddling()
+    {
+        state = "cludding";
+        animator.SetBool("cuddling", true);
+    }
+
+    void Idle()
+    {
+        state = "idle";
+        animator.SetBool("cuddling", false);
     }
 }
