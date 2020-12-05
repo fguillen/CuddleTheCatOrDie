@@ -37,14 +37,15 @@ public class CatController : MonoBehaviour
         secondsOfCuddling -= Time.deltaTime;
         if(secondsOfCuddling <= 0)
         {
-            IsHappy();
             ObjectsInstances.instance.handsController.CatHappy(this.gameObject);
+            IsHappy();
         }
     }
 
     void IsHappy()
     {
-        Destroy(this);
+        Destroy(this.gameObject);
+        ObjectsInstances.instance.catsController.SpawnCat();
     }
 
 

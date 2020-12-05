@@ -19,7 +19,7 @@ public class CatsController : MonoBehaviour
         
     }
 
-    void SpawnCat()
+    public void SpawnCat()
     {
         Transform spawner = RandomSpawner();
         Instantiate(catPrefab, spawner.position, spawner.rotation);

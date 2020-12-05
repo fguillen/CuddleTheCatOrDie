@@ -82,7 +82,7 @@ public class HandsController : MonoBehaviour
         if(catOnTheSpotlight)
         {
             print("Cuddling 2");
-            catOnTheSpotlight.GetComponent<CatController>().BeingCuddled());
+            catOnTheSpotlight.GetComponent<CatController>().BeingCuddled();
         }
     }
 
@@ -112,11 +112,11 @@ public class HandsController : MonoBehaviour
         }
     }
 
-    public void CatHappy(cat)
+    public void CatHappy(GameObject cat)
     {
-        if(cat = catOnTheSpotLight)
+        if(cat == catOnTheSpotlight)
         {
-            catOnTheSpotlight = null;s
+            catOnTheSpotlight = null;
         }
     }
 }
