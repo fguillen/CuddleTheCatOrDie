@@ -9,6 +9,9 @@ public class CatController : MonoBehaviour
     [SerializeField] float secondsOfCuddling;
     [SerializeField] float secondsToBeAngry;
     [SerializeField] string state;
+    [SerializeField] AudioSource idleSound;
+    [SerializeField] AudioSource cuddlingSound;
+    [SerializeField] AudioSource angrySound;
 
     Animator animator;
 
@@ -19,6 +22,7 @@ public class CatController : MonoBehaviour
         RandomSprite();
         state = "idle";
         animator = GetComponent<Animator>();
+        idleSound.Play();
     }
 
     // Update is called once per frame
@@ -34,7 +38,7 @@ public class CatController : MonoBehaviour
     {
         secondsToBeAngry -= Time.deltaTime;
 
-        if(secondsToBeAngry <= 0)
+        if(state == "idle" && secondsToBeAngry <= 0)
         {
             GetAngry();
         }
@@ -42,6 +46,10 @@ public class CatController : MonoBehaviour
 
     void GetAngry()
     {
+        state = "angry";
+        idleSound.Stop();
+        angrySound.Play();
+        cuddlingSound.Stop();
         animator.SetBool("angry", true);
     }
 
@@ -65,6 +73,8 @@ public class CatController : MonoBehaviour
         {
             state = "cuddling";
             animator.SetBool("cuddling", true);
+            idleSound.Stop();
+            cuddlingSound.Play();
         }
 
         secondsOfCuddling -= Time.deltaTime;
@@ -79,12 +89,15 @@ public class CatController : MonoBehaviour
     {
         state = "idle";
         animator.SetBool("cuddling", false);
+        cuddlingSound.Stop();
+        idleSound.Play();
     }
 
     void IsHappy()
     {
         Destroy(this.gameObject);
         ObjectsInstances.instance.catsController.SpawnCat();
+        cuddlingSound.Stop();
     }
 
 

@@ -8,6 +8,7 @@ public class HandsController : MonoBehaviour
     [SerializeField] Transform[] limits;
     [SerializeField] float speed;
     [SerializeField] string state;
+    [SerializeField] AudioSource cuddlingSound;
 
     float minX;
     float maxX;
@@ -73,6 +74,7 @@ public class HandsController : MonoBehaviour
     {
         state = "cuddling";
         animator.SetBool("cuddling", true);
+        cuddlingSound.Play();
     }
 
     void Cuddling()
@@ -91,6 +93,8 @@ public class HandsController : MonoBehaviour
         {
             catOnTheSpotlight.GetComponent<CatController>().StopCuddling();
         }
+
+        cuddlingSound.Stop();
     }
 
     void OnTriggerEnter2D(Collider2D other)
