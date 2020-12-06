@@ -8,6 +8,7 @@ public class CatController : MonoBehaviour
     [SerializeField] Sprite[] spriteTemplates;
     [SerializeField] float secondsOfCuddling;
     [SerializeField] float secondsToBeAngry;
+    float secondsToBeAngryLeft;
     [SerializeField] string state;
     [SerializeField] AudioSource idleSound;
     [SerializeField] AudioSource cuddlingSound;
@@ -23,6 +24,7 @@ public class CatController : MonoBehaviour
         state = "idle";
         animator = GetComponent<Animator>();
         idleSound.Play();
+        secondsToBeAngryLeft = secondsToBeAngry; 
     }
 
     // Update is called once per frame
@@ -36,11 +38,16 @@ public class CatController : MonoBehaviour
 
     void GettingAngry()
     {
-        secondsToBeAngry -= Time.deltaTime;
+        secondsToBeAngryLeft -= Time.deltaTime;
 
-        if(state == "idle" && secondsToBeAngry <= 0)
+        if(state == "idle" && secondsToBeAngryLeft <= 0)
         {
             GetAngry();
+        }
+
+        if(ObjectsInstances.instance.counterController.IsIdle() && secondsToBeAngryLeft <= 3)
+        {
+            ObjectsInstances.instance.counterController.StartCountDown();
         }
     }
 
@@ -75,13 +82,22 @@ public class CatController : MonoBehaviour
             animator.SetBool("cuddling", true);
             idleSound.Stop();
             cuddlingSound.Play();
+            secondsToBeAngryLeft = secondsToBeAngry; 
         }
 
-        secondsOfCuddling -= Time.deltaTime;
-        if(secondsOfCuddling <= 0)
+        if(state != "angry") 
         {
-            ObjectsInstances.instance.handsController.CatHappy(this.gameObject);
-            IsHappy();
+            if(!ObjectsInstances.instance.counterController.IsIdle())
+            {
+                ObjectsInstances.instance.counterController.Idle();
+            }
+
+            secondsOfCuddling -= Time.deltaTime;
+            if(secondsOfCuddling <= 0)
+            {
+                ObjectsInstances.instance.handsController.CatHappy(this.gameObject);
+                IsHappy();
+            }
         }
     }
 

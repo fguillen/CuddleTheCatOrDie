@@ -17,6 +17,9 @@ TextureImporter:
   - first:
       213: 6709755758995913376
     second: CanvasControls_4
+  - first:
+      213: -1861595339475433054
+    second: CanvasControls_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -144,7 +147,7 @@ TextureImporter:
         x: 0
         y: 8
         width: 185
-        height: 205
+        height: 206
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,7 +186,7 @@ TextureImporter:
       name: CanvasControls_2
       rect:
         serializedVersion: 2
-        x: 512
+        x: 511
         y: 0
         width: 220
         height: 221
@@ -204,7 +207,7 @@ TextureImporter:
       name: CanvasControls_3
       rect:
         serializedVersion: 2
-        x: 786
+        x: 787
         y: 0
         width: 220
         height: 221
@@ -225,7 +228,7 @@ TextureImporter:
       name: CanvasControls_4
       rect:
         serializedVersion: 2
-        x: 1059
+        x: 1057
         y: 0
         width: 220
         height: 221
@@ -238,6 +241,27 @@ TextureImporter:
       bones: []
       spriteID: 0aa35902057dd1d50800000000000000
       internalID: 6709755758995913376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CanvasControls_5
+      rect:
+        serializedVersion: 2
+        x: 1329
+        y: 0
+        width: 220
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a94b03e6e84a26e0800000000000000
+      internalID: -1861595339475433054
       vertices: []
       indices: 
       edges: []

@@ -9,6 +9,7 @@ public class ObjectsInstances : MonoBehaviour
     [SerializeField] public ScreensController screensController;
     [SerializeField] public ScoreController scoreController;
     [SerializeField] public CanvasController canvasController;
+    [SerializeField] public CounterController counterController;
 
     public static ObjectsInstances instance;
 
