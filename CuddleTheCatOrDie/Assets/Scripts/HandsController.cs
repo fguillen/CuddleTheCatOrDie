@@ -36,7 +36,7 @@ public class HandsController : MonoBehaviour
     {
         if(state == "idle")
         {
-            MoveTowardsCursor();
+            // MoveTowardsCursor();
         }
 
         if(state == "cuddling")
