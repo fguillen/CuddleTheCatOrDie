@@ -5,7 +5,7 @@ using Cinemachine;
 
 public class ObjectsInstances : MonoBehaviour
 {
-    [SerializeField] public HandsController handsController;
+    [SerializeField] public HandController handController;
     [SerializeField] public CatsController catsController;
     [SerializeField] public ScreensController screensController;
     [SerializeField] public ScoreController scoreController;

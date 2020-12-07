@@ -63,7 +63,7 @@ public class CatController : MonoBehaviour
     public void Explosion()
     {
         ObjectsInstances.instance.screensController.DeadScreen();
-        ObjectsInstances.instance.handsController.Dead();
+        ObjectsInstances.instance.handController.Dead();
         Destroy(this.gameObject);
     }
 
@@ -95,7 +95,7 @@ public class CatController : MonoBehaviour
             secondsOfCuddling -= Time.deltaTime;
             if(secondsOfCuddling <= 0)
             {
-                ObjectsInstances.instance.handsController.CatHappy(this.gameObject);
+                ObjectsInstances.instance.handController.CatHappy(this.gameObject);
                 IsHappy();
             }
         }

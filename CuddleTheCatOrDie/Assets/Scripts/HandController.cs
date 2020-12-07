@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class HandsController : MonoBehaviour
+public class HandController : MonoBehaviour
 {
     [SerializeField] Transform[] limits;
     [SerializeField] float speed;
@@ -35,9 +35,6 @@ public class HandsController : MonoBehaviour
 
     void Update()
     {
-
-        print("Touching UI: "+ TouchingJoystick());
-
         if(state == "idle")
         {
             // MoveTowardsCursor();
@@ -61,6 +58,8 @@ public class HandsController : MonoBehaviour
         {
             Idle();
         }
+
+        StayIntoTheLimits();
     }
 
     void SetPositionOnCursor()
@@ -79,7 +78,10 @@ public class HandsController : MonoBehaviour
         // transform.position = new Vector3(worldPosition.x, worldPosition.y, transform.position.z);
 
         transform.position = Vector3.MoveTowards(transform.position, worldPosition, speed * Time.deltaTime);
+    }
 
+    void StayIntoTheLimits()
+    {
         if(transform.position.x > maxX) transform.position = new Vector3(maxX, transform.position.y, transform.position.z);
         if(transform.position.x < minX) transform.position = new Vector3(minX, transform.position.y, transform.position.z);
         if(transform.position.y > maxY) transform.position = new Vector3(transform.position.x, maxY, transform.position.z);
@@ -151,7 +153,7 @@ public class HandsController : MonoBehaviour
 
     void StartCameraFollow()
     {
-        ObjectsInstances.instance.virtualCamera.m_Follow = ObjectsInstances.instance.handsController.gameObject.transform;
+        ObjectsInstances.instance.virtualCamera.m_Follow = ObjectsInstances.instance.handController.gameObject.transform;
     }
 
     bool TouchingJoystick()
