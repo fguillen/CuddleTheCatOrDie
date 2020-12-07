@@ -6,27 +6,12 @@ using TMPro;
 public class CanvasController : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreText;
-    [SerializeField] GameObject arrow;
 
     Animator animator;
 
     void Start()
     {
         animator = GetComponent<Animator>();
-    }
-
-    void Update()
-    {
-        OrientArrow();    
-    }
-
-    void OrientArrow()
-    {
-        if(ObjectsInstances.instance.catsController.GetActiveCat())
-        {
-            Vector2 catPosition = Camera.main.WorldToScreenPoint(ObjectsInstances.instance.catsController.GetActiveCat().transform.position);
-            arrow.transform.right = catPosition;
-        }
     }
 
     public void SetScore(int score)
