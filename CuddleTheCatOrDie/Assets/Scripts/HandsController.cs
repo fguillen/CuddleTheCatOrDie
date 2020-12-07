@@ -9,6 +9,7 @@ public class HandsController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] string state;
     [SerializeField] AudioSource cuddlingSound;
+    [SerializeField] LayerMask uiLayerMask;
 
     float minX;
     float maxX;
@@ -34,6 +35,9 @@ public class HandsController : MonoBehaviour
 
     void Update()
     {
+
+        print("Touching UI: "+ TouchingJoystick());
+
         if(state == "idle")
         {
             // MoveTowardsCursor();
@@ -41,18 +45,30 @@ public class HandsController : MonoBehaviour
 
         if(state == "cuddling")
         {
+            SetPositionOnCursor();
             Cuddling();
         }
 
         if(state == "idle" && Input.GetMouseButtonDown(0))
         {
-            StartCuddling();
+            if(!TouchingJoystick())
+            {
+                StartCuddling();
+            }
         }
 
         if(state == "cuddling" && Input.GetMouseButtonUp(0))
         {
             Idle();
         }
+    }
+
+    void SetPositionOnCursor()
+    {
+        Vector2 screenPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        Vector2 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
+
+        transform.position = worldPosition;
     }
 
     void MoveTowardsCursor()
@@ -75,6 +91,7 @@ public class HandsController : MonoBehaviour
         state = "cuddling";
         animator.SetBool("cuddling", true);
         cuddlingSound.Play();
+        StopCameraFollow();
     }
 
     void Cuddling()
@@ -89,6 +106,7 @@ public class HandsController : MonoBehaviour
     {
         state = "idle";
         animator.SetBool("cuddling", false);
+        StartCameraFollow();
         if(catOnTheSpotlight)
         {
             catOnTheSpotlight.GetComponent<CatController>().StopCuddling();
@@ -125,4 +143,28 @@ public class HandsController : MonoBehaviour
             catOnTheSpotlight = null;
         }
     }
+
+    void StopCameraFollow()
+    {
+        ObjectsInstances.instance.virtualCamera.m_Follow = null;
+    }
+
+    void StartCameraFollow()
+    {
+        ObjectsInstances.instance.virtualCamera.m_Follow = ObjectsInstances.instance.handsController.gameObject.transform;
+    }
+
+    bool TouchingJoystick()
+    {
+        // RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), -Vector2.up, 100f, uiLayerMask);
+        Collider2D hit = Physics2D.OverlapPoint(Input.mousePosition, uiLayerMask);
+
+        if(hit)
+        {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
+ 
