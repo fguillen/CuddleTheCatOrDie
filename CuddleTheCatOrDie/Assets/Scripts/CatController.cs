@@ -7,7 +7,7 @@ public class CatController : MonoBehaviour
 
     [SerializeField] Sprite[] spriteTemplates;
     [SerializeField] float secondsOfCuddling;
-    [SerializeField] float secondsToBeAngry;
+    float secondsToBeAngry;
     float secondsToBeAngryLeft;
     [SerializeField] string state;
     [SerializeField] AudioSource idleSound;
@@ -24,6 +24,11 @@ public class CatController : MonoBehaviour
         state = "idle";
         animator = GetComponent<Animator>();
         idleSound.Play();
+    }
+
+    public void SetSecondsToBeAngry(float seconds)
+    {
+        secondsToBeAngry = seconds;
         secondsToBeAngryLeft = secondsToBeAngry; 
     }
 

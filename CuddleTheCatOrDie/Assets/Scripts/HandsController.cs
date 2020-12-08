@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class HandController : MonoBehaviour
+public class HandsController : MonoBehaviour
 {
     [SerializeField] Transform[] limits;
     [SerializeField] float speed;
@@ -58,8 +58,6 @@ public class HandController : MonoBehaviour
         {
             Idle();
         }
-
-        StayIntoTheLimits();
     }
 
     void SetPositionOnCursor()
@@ -78,10 +76,7 @@ public class HandController : MonoBehaviour
         // transform.position = new Vector3(worldPosition.x, worldPosition.y, transform.position.z);
 
         transform.position = Vector3.MoveTowards(transform.position, worldPosition, speed * Time.deltaTime);
-    }
 
-    void StayIntoTheLimits()
-    {
         if(transform.position.x > maxX) transform.position = new Vector3(maxX, transform.position.y, transform.position.z);
         if(transform.position.x < minX) transform.position = new Vector3(minX, transform.position.y, transform.position.z);
         if(transform.position.y > maxY) transform.position = new Vector3(transform.position.x, maxY, transform.position.z);
@@ -167,11 +162,6 @@ public class HandController : MonoBehaviour
         } else {
             return false;
         }
-    }
-
-    public float GetSpeed()
-    {
-        return speed;
     }
 }
  

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ScoreController : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int score;
+    int score;
 
     void Start()
     {
@@ -16,5 +16,10 @@ public class ScoreController : MonoBehaviour
     {
         score ++;
         ObjectsInstances.instance.canvasController.SetScore(score);
+    }
+
+    public int GetScore()
+    {
+        return score;
     }
 }
