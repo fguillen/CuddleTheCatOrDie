@@ -85,7 +85,7 @@ SpriteRenderer:
   m_Size: {x: 3.5, y: 3.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &2133272567369976812
@@ -103,6 +103,8 @@ MonoBehaviour:
   spriteTemplates:
   - {fileID: 7084743368454719288, guid: 736530f8095894f109af1f5c85180520, type: 3}
   - {fileID: 5811827580561910979, guid: 736530f8095894f109af1f5c85180520, type: 3}
+  - {fileID: 511023534114622169, guid: 736530f8095894f109af1f5c85180520, type: 3}
+  - {fileID: 247556521328255030, guid: 736530f8095894f109af1f5c85180520, type: 3}
   secondsOfCuddling: 2
   state: 
   idleSound: {fileID: 7001995111670923045}
