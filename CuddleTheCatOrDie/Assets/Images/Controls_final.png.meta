@@ -1,25 +1,34 @@
 fileFormatVersion: 2
-guid: 072739748565744eaa26795458f0dddf
+guid: 59582ee7ca84742e9974f47db10d12f0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -669385385749797920
-    second: CanvasControls_0
+      213: -3289704879301636871
+    second: 3
   - first:
-      213: 4212685759147190078
-    second: CanvasControls_1
+      213: 3454088084102697764
+    second: 2
   - first:
-      213: 3016296162089980051
-    second: CanvasControls_2
+      213: 8534300715817936058
+    second: 1
   - first:
-      213: -3469026145313748711
-    second: CanvasControls_3
+      213: 689965346019916153
+    second: 0
   - first:
-      213: 6709755758995913376
-    second: CanvasControls_4
+      213: 7257493679540108291
+    second: Arrow
   - first:
-      213: -1861595339475433054
-    second: CanvasControls_5
+      213: 6283073429451437292
+    second: Hand
+  - first:
+      213: 6089400700218052034
+    second: R1
+  - first:
+      213: 4265071040390105636
+    second: R2
+  - first:
+      213: 5052906977759796426
+    second: Button
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -49,7 +58,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -63,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -82,7 +91,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -94,7 +103,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,7 +115,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -118,7 +127,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -130,7 +139,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -141,127 +150,190 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CanvasControls_0
+      name: 3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 8
-        width: 185
-        height: 206
+        x: 32
+        y: 1085
+        width: 141
+        height: 139
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e3ab88c98dd5b6f0800000000000000
-      internalID: -669385385749797920
+      spriteID: 9fc4b5587de9852d0800000000000000
+      internalID: -3289704879301636871
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CanvasControls_1
+      name: 2
       rect:
         serializedVersion: 2
-        x: 237
-        y: 0
-        width: 222
-        height: 221
+        x: 193
+        y: 1085
+        width: 139
+        height: 139
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e37a050d067767a30800000000000000
-      internalID: 4212685759147190078
+      spriteID: 423d9dbdfc26fef20800000000000000
+      internalID: 3454088084102697764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CanvasControls_2
+      name: 1
       rect:
         serializedVersion: 2
-        x: 511
-        y: 0
-        width: 220
-        height: 221
+        x: 352
+        y: 1085
+        width: 139
+        height: 139
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3905fbed0690cd920800000000000000
-      internalID: 3016296162089980051
+      spriteID: ab4a0bcc84def6670800000000000000
+      internalID: 8534300715817936058
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CanvasControls_3
+      name: 0
       rect:
         serializedVersion: 2
-        x: 787
-        y: 0
-        width: 220
-        height: 221
+        x: 510
+        y: 1085
+        width: 139
+        height: 139
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 919080cb91b8bdfc0800000000000000
-      internalID: -3469026145313748711
+      spriteID: 979b8dc93df339900800000000000000
+      internalID: 689965346019916153
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CanvasControls_4
+      name: Arrow
       rect:
         serializedVersion: 2
-        x: 1057
-        y: 0
-        width: 220
-        height: 221
+        x: 34
+        y: 904
+        width: 140
+        height: 139
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0aa35902057dd1d50800000000000000
-      internalID: 6709755758995913376
+      spriteID: 30c71a8bc0cc7b460800000000000000
+      internalID: 7257493679540108291
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CanvasControls_5
+      name: Hand
       rect:
         serializedVersion: 2
-        x: 1329
-        y: 0
-        width: 220
-        height: 221
+        x: 205
+        y: 899
+        width: 115
+        height: 149
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a94b03e6e84a26e0800000000000000
-      internalID: -1861595339475433054
+      spriteID: ce4f524bef5f13750800000000000000
+      internalID: 6283073429451437292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: R1
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 737
+        width: 84
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cd038f7ca5e18450800000000000000
+      internalID: 6089400700218052034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: R2
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 738
+        width: 68
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42a02409383903b30800000000000000
+      internalID: 4265071040390105636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 575
+        width: 215
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acc1774ff188f1640800000000000000
+      internalID: 5052906977759796426
       vertices: []
       indices: 
       edges: []
