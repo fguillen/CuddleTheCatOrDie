@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class CatsController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class CatsController : MonoBehaviour
     [SerializeField] public GameObject activeCat;
 
     BeizerCalculator difficultyBeizer;
+    Transform actualSpawner;
 
     // Start is called before the first frame update
     void Start()
@@ -25,14 +27,16 @@ public class CatsController : MonoBehaviour
 
     public void SpawnCat()
     {
-        Transform spawner = RandomSpawner();
-        activeCat = Instantiate(catPrefab, spawner.position, spawner.rotation);
+        actualSpawner = RandomSpawner();
+        activeCat = Instantiate(catPrefab, actualSpawner.position, actualSpawner.rotation);
 
         SetSecondsToBeAngry(activeCat);
     }
     Transform RandomSpawner()
     {
-        return catSpawners[Random.Range(0, catSpawners.Length)];
+        var allSpawnersButTheActualOne = catSpawners.Where(e => e != actualSpawner).ToArray();
+
+        return allSpawnersButTheActualOne[Random.Range(0, allSpawnersButTheActualOne.Length)];
     }
 
     public GameObject GetActiveCat()
