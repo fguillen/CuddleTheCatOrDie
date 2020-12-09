@@ -18,11 +18,14 @@ public class HandJoystickController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontalMove = joystick.Horizontal;
-        float verticalMove = joystick.Vertical;
+        if(ObjectsInstances.instance.handController.IsIdle())
+        {
+            float horizontalMove = joystick.Horizontal;
+            float verticalMove = joystick.Vertical;
 
-        Vector2 direction = new Vector2(horizontalMove, verticalMove);
-        
-        theRigidbody.velocity = direction * speed;
+            Vector2 direction = new Vector2(horizontalMove, verticalMove);
+            
+            theRigidbody.velocity = direction * speed;
+        }
     }
 }

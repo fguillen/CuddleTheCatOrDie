@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
 
 public class ObjectsInstances : MonoBehaviour
 {
@@ -11,7 +10,7 @@ public class ObjectsInstances : MonoBehaviour
     [SerializeField] public ScoreController scoreController;
     [SerializeField] public CanvasController canvasController;
     [SerializeField] public CounterController counterController;
-    [SerializeField] public CinemachineVirtualCamera virtualCamera;
+    [SerializeField] public CameraController cameraController;
 
     public static ObjectsInstances instance;
 

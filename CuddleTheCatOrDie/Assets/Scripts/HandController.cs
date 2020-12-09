@@ -148,12 +148,12 @@ public class HandController : MonoBehaviour
 
     void StopCameraFollow()
     {
-        ObjectsInstances.instance.virtualCamera.m_Follow = null;
+        ObjectsInstances.instance.cameraController.StopFollow();
     }
 
     void StartCameraFollow()
     {
-        ObjectsInstances.instance.virtualCamera.m_Follow = ObjectsInstances.instance.handController.gameObject.transform;
+        ObjectsInstances.instance.cameraController.SetFollow(ObjectsInstances.instance.handController.gameObject);
     }
 
     bool TouchingJoystick()
@@ -172,6 +172,11 @@ public class HandController : MonoBehaviour
     public float GetSpeed()
     {
         return speed;
+    }
+
+    public bool IsIdle()
+    {
+        return state == "idle";
     }
 }
  

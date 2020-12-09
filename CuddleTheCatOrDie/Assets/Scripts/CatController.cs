@@ -63,13 +63,14 @@ public class CatController : MonoBehaviour
         angrySound.Play();
         cuddlingSound.Stop();
         animator.SetBool("angry", true);
+        ObjectsInstances.instance.cameraController.SetFollow(gameObject);
+        ObjectsInstances.instance.handController.Dead();
     }
 
     public void Explosion()
     {
         ObjectsInstances.instance.screensController.DeadScreen();
-        ObjectsInstances.instance.handController.Dead();
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 
     void RandomSprite()
