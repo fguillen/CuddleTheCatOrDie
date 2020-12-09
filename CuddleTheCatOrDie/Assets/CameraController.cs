@@ -8,10 +8,12 @@ public class CameraController : MonoBehaviour
 {
 
     CinemachineVirtualCamera virtualCamera;
+    Animator animator;
 
     void Start()
     {
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
+        animator = GetComponent<Animator>();
     }
     public void SetFollow(GameObject target)
     {
@@ -21,5 +23,11 @@ public class CameraController : MonoBehaviour
     public void StopFollow()
     {
         virtualCamera.m_Follow = null;
+    }
+
+    public void FocusOnExplodingCat(GameObject cat)
+    {
+        SetFollow(cat);
+        animator.SetTrigger("openLen");
     }
 }

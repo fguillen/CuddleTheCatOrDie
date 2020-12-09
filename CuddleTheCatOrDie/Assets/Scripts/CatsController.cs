@@ -15,11 +15,6 @@ public class CatsController : MonoBehaviour
     void Start()
     {
         SpawnCat();
-
-        for(int i = 0; i <= 30; i ++)
-        {
-            print ("seconds for num (" + i + ") is: " + SecondsToGetAngry(i));
-        }
     }
 
     // Update is called once per frame
@@ -95,6 +90,8 @@ public class CatsController : MonoBehaviour
         seconds += buffer;
 
         cat.GetComponent<CatController>().SetSecondsToBeAngry(seconds);
+
+        // cat.GetComponent<CatController>().SetSecondsToBeAngry(3);
     }
 
 
