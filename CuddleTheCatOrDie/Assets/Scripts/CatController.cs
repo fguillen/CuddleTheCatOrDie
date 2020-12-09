@@ -13,6 +13,7 @@ public class CatController : MonoBehaviour
     [SerializeField] AudioSource idleSound;
     [SerializeField] AudioSource cuddlingSound;
     [SerializeField] AudioSource angrySound;
+    [SerializeField] ParticleSystem rummEffect;
 
     Animator animator;
 
@@ -24,6 +25,7 @@ public class CatController : MonoBehaviour
         state = "idle";
         animator = GetComponent<Animator>();
         idleSound.Play();
+        rummEffect.Stop();
     }
 
     public void SetSecondsToBeAngry(float seconds)
@@ -88,6 +90,7 @@ public class CatController : MonoBehaviour
             idleSound.Stop();
             cuddlingSound.Play();
             secondsToBeAngryLeft = secondsToBeAngry; 
+            rummEffect.Play();
         }
 
         if(state != "angry") 
@@ -112,6 +115,7 @@ public class CatController : MonoBehaviour
         animator.SetBool("cuddling", false);
         cuddlingSound.Stop();
         idleSound.Play();
+        rummEffect.Stop();
     }
 
     void IsHappy()
