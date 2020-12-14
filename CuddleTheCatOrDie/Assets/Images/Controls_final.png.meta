@@ -29,6 +29,9 @@ TextureImporter:
   - first:
       213: 5052906977759796426
     second: Button
+  - first:
+      213: 3679971285145283628
+    second: Pause
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -334,6 +337,27 @@ TextureImporter:
       bones: []
       spriteID: acc1774ff188f1640800000000000000
       internalID: 5052906977759796426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pause
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 903
+        width: 143
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2ce8b2f262e11330800000000000000
+      internalID: 3679971285145283628
       vertices: []
       indices: 
       edges: []
