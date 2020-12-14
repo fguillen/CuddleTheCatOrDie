@@ -21,23 +21,13 @@ public class MenuCanvasController : MonoBehaviour
         animator.SetTrigger("hideCredits");
     }
 
-    public void ShowSettings()
+    public void ShowHighscores()
     {
-        animator.SetTrigger("showSettings");
+        animator.SetTrigger("showHighscores");
     }
 
-    public void HideSettings()
+    public void HideHighscores()
     {
-        animator.SetTrigger("hideSettings");
-    }
-
-    public void ShowHigscores()
-    {
-        animator.SetTrigger("showHigscores");
-    }
-
-    public void HideHigscores()
-    {
-        animator.SetTrigger("hideHigscores");
+        animator.SetTrigger("hideHighscores");
     }
 }
