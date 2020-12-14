@@ -1,6 +1,6 @@
 # Cuddle the Cat ... or Die
 
-The city if full of Cats, they need your cuddle... or they will scream
+The city is full of Cats, they need your cuddle... or they will scream
 
 ## Description
 
@@ -8,13 +8,15 @@ The city if full of Cats, they need your cuddle... or they will scream
 
 It is very inspired in the old 80s game: Prohibition
 
+The prototype of this game was made in 8 hours for the [BerlinMiniJam](http://berlinminijam.de/) of December 2020.
+
 ## Versions
 
 - Play on the browser: https://arturitoproductions.itch.io/cuddle-the-cat-or-die
 
 ## Credits
 
-- Programming and stuff: alberto bueno
+- Idea, programming and stuff: alberto bueno
 - Original Drawings: Anfisa Kup
 - Miau noises: Anfisa Kup
 - Background Music: https://www.bensound.com/royalty-free-music/track/hip-jazz

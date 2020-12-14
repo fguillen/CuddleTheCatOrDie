@@ -48,7 +48,7 @@ public class HandController : MonoBehaviour
 
         if(state == "idle" && Input.GetMouseButtonDown(0))
         {
-            if(!TouchingJoystick())
+            if(!TouchingUI())
             {
                 StartCuddling();
             }
@@ -158,7 +158,7 @@ public class HandController : MonoBehaviour
         ObjectsInstances.instance.cameraController.SetFollow(ObjectsInstances.instance.handController.gameObject);
     }
 
-    bool TouchingJoystick()
+    bool TouchingUI()
     {
         // RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), -Vector2.up, 100f, uiLayerMask);
         Collider2D hit = Physics2D.OverlapPoint(Input.mousePosition, uiLayerMask);
