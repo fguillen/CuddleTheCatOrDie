@@ -104,7 +104,7 @@ public class HandController : MonoBehaviour
         }
     }
 
-    void Idle()
+    public void Idle()
     {
         state = "idle";
         animator.SetBool("cuddling", false);
@@ -179,6 +179,11 @@ public class HandController : MonoBehaviour
     public bool IsIdle()
     {
         return state == "idle";
+    }
+
+    public void Pause()
+    {
+        state = "paused";
     }
 }
  

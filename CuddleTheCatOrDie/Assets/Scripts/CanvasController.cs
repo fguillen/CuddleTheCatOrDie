@@ -29,6 +29,7 @@ public class CanvasController : MonoBehaviour
 
     public void ShowHighscores()
     {
+        print("ShowHighscores");
         animator.SetTrigger("showHighscores");
     }
 
@@ -39,12 +40,17 @@ public class CanvasController : MonoBehaviour
 
     public void ShowPause()
     {
+        print("ShowPause");
         animator.SetTrigger("showPause");
+        Time.timeScale = 0f;
+        ObjectsInstances.instance.handController.Pause();
     }
 
     public void HidePause()
     {
         animator.SetTrigger("hidePause");
+        Time.timeScale = 1f;
+        ObjectsInstances.instance.handController.Idle();
     }
 
     public void QuitToMenu()
