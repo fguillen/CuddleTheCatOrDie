@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
+
 
 public class CanvasController : MonoBehaviour
 {
@@ -23,5 +25,30 @@ public class CanvasController : MonoBehaviour
     public void DeadScreen()
     {
         animator.SetTrigger("deadScreen");
+    }
+
+    public void ShowHighscores()
+    {
+        animator.SetTrigger("showHighscores");
+    }
+
+    public void HideHighscores()
+    {
+        animator.SetTrigger("hideHighscores");
+    }
+
+    public void ShowPause()
+    {
+        animator.SetTrigger("showPause");
+    }
+
+    public void HidePause()
+    {
+        animator.SetTrigger("hidePause");
+    }
+
+    public void QuitToMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }

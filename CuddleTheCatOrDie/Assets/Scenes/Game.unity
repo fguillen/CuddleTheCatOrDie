@@ -1074,6 +1074,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4311266274770594331, guid: 3dc17da5c3e864d3c87e84409f6b71fd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5907936466055397343, guid: 3dc17da5c3e864d3c87e84409f6b71fd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1559812448}
+    - target: {fileID: 5907936466055397343, guid: 3dc17da5c3e864d3c87e84409f6b71fd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HideHighscores
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dc17da5c3e864d3c87e84409f6b71fd, type: 3}
 --- !u!224 &414538619 stripped
@@ -1505,6 +1520,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649791950545665146, guid: 4e01fdf29dce848828ae461068ff8484,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1559812448}
+    - target: {fileID: 7649791950545665146, guid: 4e01fdf29dce848828ae461068ff8484,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowHighscores
       objectReference: {fileID: 0}
     - target: {fileID: 7649791950994436620, guid: 4e01fdf29dce848828ae461068ff8484,
         type: 3}
@@ -2368,7 +2393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 944296972}
   m_Layer: 5
-  m_Name: Message (1)
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2572,6 +2597,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7649791950545665146, guid: 4e01fdf29dce848828ae461068ff8484,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1559812448}
+    - target: {fileID: 7649791950545665146, guid: 4e01fdf29dce848828ae461068ff8484,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitToMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 7649791950994436620, guid: 4e01fdf29dce848828ae461068ff8484,
         type: 3}
       propertyPath: m_text
@@ -2596,7 +2631,6 @@ GameObject:
   - component: {fileID: 1135883663}
   - component: {fileID: 1135883667}
   - component: {fileID: 1135883666}
-  - component: {fileID: 1135883665}
   - component: {fileID: 1135883664}
   m_Layer: 5
   m_Name: Pause
@@ -2667,8 +2701,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: HideHighscores
+      - m_Target: {fileID: 1559812448}
+        m_MethodName: ShowPause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2678,18 +2712,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1135883665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1135883662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdd8268d0a9ec404588015060fdb2df0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1135883666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3923,6 +3945,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649791950545665146, guid: 4e01fdf29dce848828ae461068ff8484,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1559812448}
+    - target: {fileID: 7649791950545665146, guid: 4e01fdf29dce848828ae461068ff8484,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HidePause
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e01fdf29dce848828ae461068ff8484, type: 3}
