@@ -128,6 +128,8 @@ public class HandController : MonoBehaviour
     public void Dead()
     {
         state = "dead";
+        int score = ObjectsInstances.instance.scoreController.GetScore();
+        ObjectsInstances.instance.highscoresController.SetScore(score);
     }
 
     void OnTriggerExit2D(Collider2D other)

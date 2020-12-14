@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
+using System.Linq;
 
 public class HighscoresController : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class HighscoresController : MonoBehaviour
     void Awake()
     {
         LoadHighscores();
+        ShowHighscores();
     }
 
     // Update is called once per frame
@@ -24,7 +26,10 @@ public class HighscoresController : MonoBehaviour
     void LoadHighscores()
     {
         highscores = DeserializeHighscores();
+    }
 
+    void ShowHighscores()
+    {
         string highscoresText = "";
 
         foreach (var highscore in highscores)
@@ -80,5 +85,13 @@ public class HighscoresController : MonoBehaviour
     List<int> GetHighscores()
     {
         return highscores;
+    }
+
+    public void SetScore(int score)
+    {
+        highscores.Add(score);
+        highscores = highscores.OrderBy(e => -e).Distinct().Take(10).ToList();
+        SaveHighscores();
+        ShowHighscores();
     }
 }

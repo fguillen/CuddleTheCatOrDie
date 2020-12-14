@@ -11,6 +11,7 @@ public class ObjectsInstances : MonoBehaviour
     [SerializeField] public CanvasController canvasController;
     [SerializeField] public CounterController counterController;
     [SerializeField] public CameraController cameraController;
+    [SerializeField] public HighscoresController highscoresController;
 
     public static ObjectsInstances instance;
 

@@ -320,7 +320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 132763856}
   m_Layer: 5
-  m_Name: Message
+  m_Name: DeadScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -340,8 +340,8 @@ RectTransform:
   - {fileID: 1912371586}
   - {fileID: 1671544954}
   - {fileID: 1576513723}
-  m_Father: {fileID: 1472612860}
-  m_RootOrder: 0
+  m_Father: {fileID: 1559812446}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1052,7 +1052,7 @@ PrefabInstance:
     - target: {fileID: 4311266274770594330, guid: 3dc17da5c3e864d3c87e84409f6b71fd,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 809
+      value: 1496
       objectReference: {fileID: 0}
     - target: {fileID: 4311266274770594330, guid: 3dc17da5c3e864d3c87e84409f6b71fd,
         type: 3}
@@ -1924,7 +1924,7 @@ RectTransform:
   - {fileID: 1546769781}
   - {fileID: 801551849}
   m_Father: {fileID: 1472612860}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2001,6 +2001,7 @@ MonoBehaviour:
   canvasController: {fileID: 1559812448}
   counterController: {fileID: 801551851}
   cameraController: {fileID: 564365218}
+  highscoresController: {fileID: 1715384192}
 --- !u!4 &941566299
 Transform:
   m_ObjectHideFlags: 0
@@ -2177,7 +2178,7 @@ RectTransform:
   - {fileID: 1513993282}
   - {fileID: 303506789}
   m_Father: {fileID: 1472612860}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2304,7 +2305,7 @@ RectTransform:
   - {fileID: 381195195}
   - {fileID: 1787447957}
   m_Father: {fileID: 1472612860}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2338,12 +2339,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 132763856}
   - {fileID: 944296972}
   - {fileID: 837942757}
   - {fileID: 1356761203}
   m_Father: {fileID: 1559812446}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2635,6 +2635,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 414538619}
+  - {fileID: 132763856}
   - {fileID: 1472612860}
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -3004,6 +3005,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671544953}
   m_CullTransparentMesh: 0
+--- !u!114 &1715384192 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4311266274770594324, guid: 3dc17da5c3e864d3c87e84409f6b71fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 414538618}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61d78aafd55fd448cacfb3d18a6908e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1727095211
 GameObject:
   m_ObjectHideFlags: 0
