@@ -96,7 +96,7 @@ public class CatController : MonoBehaviour
             rummEffect.Play();
         }
 
-        if(state != "angry") 
+        if(state != "angry" && state != "happy") 
         {
             if(!ObjectsInstances.instance.counterController.IsIdle())
             {
@@ -114,11 +114,14 @@ public class CatController : MonoBehaviour
 
     public void StopCuddling()
     {
-        state = "idle";
-        animator.SetBool("cuddling", false);
-        cuddlingSound.Stop();
-        idleSound.Play();
-        rummEffect.Stop();
+        if(state != "happy")
+        {
+            state = "idle";
+            animator.SetBool("cuddling", false);
+            cuddlingSound.Stop();
+            idleSound.Play();
+            rummEffect.Stop();
+        }
     }
 
     void IsHappy()
