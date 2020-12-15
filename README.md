@@ -21,6 +21,8 @@ The prototype of this game was made in 8 hours for the [BerlinMiniJam](http://be
 - Miau noises: Anfisa Kup
 - Background Music: https://www.bensound.com/royalty-free-music/track/hip-jazz
 - Countdown beep: https://freesound.org/people/pan14/sounds/263133/
+- Button sound 1: https://freesound.org/people/ArtemBasov/sounds/427455/
+- Button sound 2: https://freesound.org/people/Mellau/sounds/506054/
 
 ## Code
 
