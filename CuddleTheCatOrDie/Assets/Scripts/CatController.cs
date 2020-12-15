@@ -125,6 +125,7 @@ public class CatController : MonoBehaviour
     {
         state = "happy";
         ObjectsInstances.instance.scoreController.IncreaseScore();
+        ObjectsInstances.instance.instructionsController.NotShowInstructionsAnyMore();
         animator.SetBool("cuddling", false);
         animator.SetBool("happy", true);
         cuddlingSound.Stop();

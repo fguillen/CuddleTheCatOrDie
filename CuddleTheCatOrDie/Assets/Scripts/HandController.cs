@@ -122,6 +122,7 @@ public class HandController : MonoBehaviour
         if(catOnTheSpotlight)
         {
             catOnTheSpotlight.GetComponent<CatController>().BeingCuddled();
+            ObjectsInstances.instance.instructionsController.HideFinger2();
         }
     }
 

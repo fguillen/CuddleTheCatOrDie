@@ -26,6 +26,11 @@ public class HandJoystickController : MonoBehaviour
             Vector2 direction = new Vector2(horizontalMove, verticalMove);
             
             theRigidbody.velocity = direction * speed;
+
+            if(direction != Vector2.zero)
+            {
+                ObjectsInstances.instance.instructionsController.HideFinger1();
+            }
         } else 
         {
             theRigidbody.velocity = Vector3.zero;
