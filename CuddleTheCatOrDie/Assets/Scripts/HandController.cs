@@ -38,6 +38,7 @@ public class HandController : MonoBehaviour
     {
         StoreUITouches();
 
+        // Touch
         if(state == "idle" && Input.touchCount > 0)
         {
             foreach (var touch in Input.touches)
@@ -46,18 +47,33 @@ public class HandController : MonoBehaviour
                 {
                     StartCuddling();
                 }    
-            }
-            
+            } 
         }
 
-        if(state == "cuddling" && !IsThereAnyTouchOutOfUI())
+        // Mouse
+        if(state == "idle" && Input.GetMouseButtonDown(0))
+        {
+            if(!IsTouchingUI(Input.mousePosition))
+            {
+                StartCuddling();
+            } 
+        }
+
+        if(state == "cuddling" && !IsThereAnyTouchOutOfUI() && !Input.GetMouseButton(0))
         {
             Idle();
         }
 
         if(state == "cuddling")
         {
-            SetPositionOnCursor();
+            if(!Input.GetMouseButton(0))
+            {
+                SetPositionOnCursor();
+            } else 
+            {
+                SetPositionOnCursorMouse();
+            }
+            
             Cuddling();
         }
 
@@ -96,6 +112,14 @@ public class HandController : MonoBehaviour
             print("GetLastMousePointerPositionNotTouchingUI returns zero");
         }
         
+        Vector2 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
+
+        transform.position = worldPosition;
+    }
+
+    void SetPositionOnCursorMouse()
+    {
+        Vector2 screenPosition = Input.mousePosition;        
         Vector2 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
 
         transform.position = worldPosition;
