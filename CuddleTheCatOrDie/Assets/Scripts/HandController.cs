@@ -10,6 +10,7 @@ public class HandController : MonoBehaviour
     [SerializeField] string state;
     [SerializeField] AudioSource cuddlingSound;
     [SerializeField] LayerMask uiLayerMask;
+    [SerializeField] List<int> touchesOnUI = new List<int>();
 
     float minX;
     float maxX;
@@ -35,9 +36,23 @@ public class HandController : MonoBehaviour
 
     void Update()
     {
-        if(state == "idle")
+        StoreUITouches();
+
+        if(state == "idle" && Input.touchCount > 0)
         {
-            // MoveTowardsCursor();
+            foreach (var touch in Input.touches)
+            {
+                if(!IsIntoTouchesOnUI(touch))
+                {
+                    StartCuddling();
+                }    
+            }
+            
+        }
+
+        if(state == "cuddling" && !IsThereAnyTouchOutOfUI())
+        {
+            Idle();
         }
 
         if(state == "cuddling")
@@ -46,38 +61,44 @@ public class HandController : MonoBehaviour
             Cuddling();
         }
 
-        if(state == "idle" && Input.GetMouseButtonDown(0))
+        StayIntoTheLimits();
+    }
+
+    void StoreUITouches()
+    {
+        foreach (var touch in Input.touches)
         {
-            if(!TouchingUI())
+            if(touch.phase == TouchPhase.Began && IsTouchingUI(touch.position))
             {
-                StartCuddling();
+                print("Adding touch to touchesOnUI: " + touch);
+                touchesOnUI.Add(touch.fingerId);
+            }
+
+            if(touch.phase == TouchPhase.Ended && IsIntoTouchesOnUI(touch))
+            {
+                print("Removing touch to touchesOnUI: " + touch);
+                touchesOnUI.Remove(touch.fingerId);
             }
         }
+    }
 
-        if(state == "cuddling" && Input.GetMouseButtonUp(0))
-        {
-            Idle();
-        }
-
-        StayIntoTheLimits();
+    bool IsIntoTouchesOnUI(Touch touch)
+    {
+        return touchesOnUI.Contains(touch.fingerId);
     }
 
     void SetPositionOnCursor()
     {
-        Vector2 screenPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        Vector2 screenPosition = GetLastMousePointerPositionNotTouchingUI();
+
+        if(screenPosition == Vector2.zero)
+        {
+            print("GetLastMousePointerPositionNotTouchingUI returns zero");
+        }
+        
         Vector2 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
 
         transform.position = worldPosition;
-    }
-
-    void MoveTowardsCursor()
-    {
-        Vector2 screenPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-        Vector2 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
-
-        // transform.position = new Vector3(worldPosition.x, worldPosition.y, transform.position.z);
-
-        transform.position = Vector3.MoveTowards(transform.position, worldPosition, speed * Time.deltaTime);
     }
 
     void StayIntoTheLimits()
@@ -128,6 +149,7 @@ public class HandController : MonoBehaviour
     public void Dead()
     {
         state = "dead";
+        animator.SetBool("cuddling", false);
         int score = ObjectsInstances.instance.scoreController.GetScore();
         ObjectsInstances.instance.highscoresController.SetScore(score);
     }
@@ -136,6 +158,7 @@ public class HandController : MonoBehaviour
     {
         if(other.gameObject == catOnTheSpotlight)
         {
+            catOnTheSpotlight.GetComponent<CatController>().StopCuddling();
             catOnTheSpotlight = null;
         }
     }
@@ -158,10 +181,10 @@ public class HandController : MonoBehaviour
         ObjectsInstances.instance.cameraController.SetFollow(ObjectsInstances.instance.handController.gameObject);
     }
 
-    bool TouchingUI()
+    bool IsTouchingUI(Vector3 position)
     {
         // RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), -Vector2.up, 100f, uiLayerMask);
-        Collider2D hit = Physics2D.OverlapPoint(Input.mousePosition, uiLayerMask);
+        Collider2D hit = Physics2D.OverlapPoint(position, uiLayerMask);
 
         if(hit)
         {
@@ -184,6 +207,32 @@ public class HandController : MonoBehaviour
     public void Pause()
     {
         state = "paused";
+    }
+
+    bool IsThereAnyTouchOutOfUI()
+    {
+        if(GetLastMousePointerPositionNotTouchingUI() != Vector2.zero)
+        {
+            return true;
+        } else
+        {
+            return false;    
+        }
+    }
+
+    Vector2 GetLastMousePointerPositionNotTouchingUI()
+    {
+        Vector2 result = Vector2.zero;
+
+        foreach (var touch in Input.touches)
+        {
+            if(touch.phase != TouchPhase.Ended && !IsIntoTouchesOnUI(touch))
+            {
+                result = touch.position;
+            }
+        } 
+
+        return result;
     }
 }
  

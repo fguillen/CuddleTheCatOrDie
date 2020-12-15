@@ -26,6 +26,9 @@ public class HandJoystickController : MonoBehaviour
             Vector2 direction = new Vector2(horizontalMove, verticalMove);
             
             theRigidbody.velocity = direction * speed;
+        } else 
+        {
+            theRigidbody.velocity = Vector3.zero;
         }
     }
 }
