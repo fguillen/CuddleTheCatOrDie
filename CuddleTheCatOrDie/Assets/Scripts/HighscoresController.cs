@@ -94,4 +94,9 @@ public class HighscoresController : MonoBehaviour
         SaveHighscores();
         ShowHighscores();
     }
+
+    public void DeleteHighscores()
+    {
+        PlayerPrefs.DeleteKey("highscores");
+    }
 }

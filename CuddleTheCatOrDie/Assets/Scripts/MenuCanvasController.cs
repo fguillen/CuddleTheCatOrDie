@@ -30,4 +30,14 @@ public class MenuCanvasController : MonoBehaviour
     {
         animator.SetTrigger("hideHighscores");
     }
+
+    public void ShowSettings()
+    {
+        animator.SetTrigger("showSettings");
+    }
+
+    public void HideSettings()
+    {
+        animator.SetTrigger("hideSettings");
+    }
 }

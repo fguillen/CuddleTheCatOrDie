@@ -66,4 +66,20 @@ public class InstructionsController : MonoBehaviour
         PlayerPrefs.SetInt("instructionsShown", 1);
     }
 
+    public void SetShowInstructions(bool value)
+    {
+        if(value)
+        {
+            PlayerPrefs.DeleteKey("instructionsShown");
+        } else 
+        {
+            NotShowInstructionsAnyMore();
+        }
+    }
+
+    public bool IsShowInstructionsActive()
+    {
+        return (PlayerPrefs.GetInt("instructionsShown") != 1);
+    }
+
 }
