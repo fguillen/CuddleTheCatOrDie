@@ -13,7 +13,9 @@ public class CatController : MonoBehaviour
     [SerializeField] AudioSource idleSound;
     [SerializeField] AudioSource cuddlingSound;
     [SerializeField] AudioSource angrySound;
+    [SerializeField] AudioSource happySound;
     [SerializeField] ParticleSystem rummEffect;
+    [SerializeField] ParticleSystem goodEffect;
 
     Animator animator;
 
@@ -26,6 +28,7 @@ public class CatController : MonoBehaviour
         animator = GetComponent<Animator>();
         idleSound.Play();
         rummEffect.Stop();
+        goodEffect.Stop();
     }
 
     public void SetSecondsToBeAngry(float seconds)
@@ -120,11 +123,20 @@ public class CatController : MonoBehaviour
 
     void IsHappy()
     {
+        state = "happy";
         ObjectsInstances.instance.scoreController.IncreaseScore();
-        ObjectsInstances.instance.catsController.SpawnCat();
+        animator.SetBool("cuddling", false);
+        animator.SetBool("happy", true);
         cuddlingSound.Stop();
-        Destroy(this.gameObject);
+        happySound.Play();
+        rummEffect.Stop();
+        goodEffect.Play();
+        Invoke("DestroyGameObject", 1.5f);
     }
 
-
+    void DestroyGameObject()
+    {
+        ObjectsInstances.instance.catsController.SpawnCat();
+        Destroy(this.gameObject);
+    }
 }
